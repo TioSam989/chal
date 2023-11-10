@@ -23,7 +23,7 @@ function getLastBook($db)
 
 <body>
 
-    <?php include('header.php') ?>
+    <?php include('header.php'); ?>
 
 
     <section>

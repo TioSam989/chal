@@ -22,11 +22,15 @@ class BookController {
         $this->model->getBook($bookid);
     }
 
-    public function store($title, $author, $publishYear){ //save new book obj
+    public function store(){ //save new book obj
         $title = $_POST['title'];
         $author = $_POST['author'];
         $publishYear = $_POST['publishYear'];
         $this->model->addNewBook($title, $author, $publishYear);
+
+        header("Location: /chal/project/ ");        
+        exit();
+
     }
 
     public function edit($bookid, $title, $author, $publishYear){

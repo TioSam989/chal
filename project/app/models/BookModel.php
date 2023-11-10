@@ -36,7 +36,7 @@ class BookModel
 
     public function addNewBook($title, $author, $publishYear)
     {
-        $query = "INSERT INTO books (title, author, publish_year) values (:title, :author, :publish_year)";
+        $query = "INSERT INTO book (title, author, publish_year) values (:title, :author, :publish_year)";
         $stmt = $this->db->prepare($query);
         $stmt->execute([
             ':title' => $title,

@@ -33,11 +33,16 @@ class BookController {
 
     }
 
-    public function edit($bookid, $title, $author, $publishYear){
+    public function edit(){
+        $bookid = $_POST["bookid"];
         $title = $_POST['title'];
         $author = $_POST['author'];
         $publishYear = $_POST['publishYear'];
         $this->model->updateBook($bookid, $title, $author, $publishYear);
+
+
+        header("Location: /chal/project/ ");        
+        exit();
     }
 
     public function delete(){

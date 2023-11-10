@@ -8,14 +8,17 @@ $bookController = new BookController($db);
 $requestedPage = $_SERVER['REQUEST_URI'];
 
 switch ($requestedPage) {
-    case '/chal/project/':
+    case '/chal/project/': //home page
         include 'app/views/home.php';
         break;
-    case '/chal/project/books':
+    case '/chal/project/books': //show all books
         $bookController->index();
         break;
-    case '/chal/project/books/add':
+    case '/chal/project/books/add': //add book page
         include 'app/views/books/create.php';
+        break;
+    case '/chal/project/books/storeBook': //add book function
+        $bookController->store();
         break;
     default:
         include('app/views/404.php');

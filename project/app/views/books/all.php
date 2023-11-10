@@ -16,7 +16,14 @@ $book_list = $_REQUEST['books'];
 
     <div class="grid-containerForAll">
 
-        <?php foreach ($book_list as $book): ?>
+
+
+
+        <?php
+        if (empty($book_list)) {
+            echo 'No books found';
+        }
+        foreach ($book_list as $book): ?>
 
             <div class="grid-itemForAll">
                 <blockquote class="bookCard">
@@ -32,12 +39,19 @@ $book_list = $_REQUEST['books'];
 
                     </p>
 
-                    <a href="<?php echo BASE_URL . 'books/show?bookId=' . $book['book_id']; ?>"><button>Edit</button></a>
-                    
-                    <form action="<?php echo BASE_URL ?>books/delete" method="POST" style="all: unset;">
-                        <input hidden style="display:none" type="text" name="bookid" value="<?php echo $book['book_id']; ?>" >
+                    <form action="<?php echo BASE_URL ?>books/modify" method="POST" style="all: unset;">
+                        <input hidden style="display:none" type="text" name="bookid"
+                            value="<?php echo $book['book_id']; ?>">
                         <button type="submit">
-                            delete
+                            Edit
+                        </button>
+                    </form>
+
+                    <form action="<?php echo BASE_URL ?>books/delete" method="POST" style="all: unset;">
+                        <input hidden style="display:none" type="text" name="bookid"
+                            value="<?php echo $book['book_id']; ?>">
+                        <button type="submit">
+                            Delete
                         </button>
                     </form> <!--nao é certo fazer isso mas nao consegui fazer via GET-->
                 </blockquote>

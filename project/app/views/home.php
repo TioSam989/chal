@@ -5,10 +5,10 @@ require_once('./app/models/BookModel.php');
 $bookModel = new BookModel($db);
 $lastBook = $bookModel->getLastAddedBook();
 
-function getLastBook($db)
+function getLastBook($db) 
 {
-    $qeury = "SELECT * FROM book ORDER BY book_id DESC LIMIT 1";
-    $stmt = $db->query($qeury);
+    $query = "SELECT * FROM book ORDER BY book_id DESC LIMIT 1";
+    $stmt = $db->query($query);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 ?>
@@ -27,7 +27,7 @@ function getLastBook($db)
 
 
     <section>
-        <h2>Last Added Book</h2>
+        <h2>Last Added Book📖</h2>
 
         <div>
             <?php

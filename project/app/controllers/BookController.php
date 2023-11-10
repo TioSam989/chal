@@ -40,8 +40,12 @@ class BookController {
         $this->model->updateBook($bookid, $title, $author, $publishYear);
     }
 
-    public function delete($bookid){
+    public function delete(){
+        $bookid = $_POST['bookid'];
         $this->model->deleteBook($bookid);
+
+        header("Location: /chal/project/ ");        
+        exit();
     }
 
     // other methods remain unchanged

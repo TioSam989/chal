@@ -7,6 +7,7 @@ $book_list = $_REQUEST['books'];
 <head>
     <?php include('./app/views/head.php') ?>
     <title>All books</title>
+
 <body>
 
     <?php include('./app/views/header.php') ?>
@@ -30,6 +31,15 @@ $book_list = $_REQUEST['books'];
                         </cite>
 
                     </p>
+
+                    <a href="<?php echo BASE_URL . 'books/show?bookId=' . $book['book_id']; ?>"><button>Edit</button></a>
+                    
+                    <form action="<?php echo BASE_URL ?>books/delete" method="POST" style="all: unset;">
+                        <input hidden style="display:none" type="text" name="bookid" value="<?php echo $book['book_id']; ?>" >
+                        <button type="submit">
+                            delete
+                        </button>
+                    </form> <!--nao é certo fazer isso mas nao consegui fazer via GET-->
                 </blockquote>
             </div>
 

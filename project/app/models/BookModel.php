@@ -23,7 +23,7 @@ class BookModel
         $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $books;
-        
+
     }
 
     public function getBook($bookId)

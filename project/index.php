@@ -20,6 +20,13 @@ switch ($requestedPage) {
     case '/chal/project/books/storeBook': //add book function
         $bookController->store();
         break;
+    case 'chal/project/books/show':
+        $book_id = $_GET['book_id'];
+        include 'app/views/books/show.php';
+        break;
+    case '/chal/project/books/delete':
+        $bookController->delete();
+        break;
     default:
         include('app/views/404.php');
         break;

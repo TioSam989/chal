@@ -5,7 +5,7 @@ require_once('./app/models/BookModel.php');
 $bookModel = new BookModel($db);
 $lastBook = $bookModel->getLastAddedBook();
 
-function getLastBook($db) 
+function getLastBook($db)
 {
     $query = "SELECT * FROM book ORDER BY book_id DESC LIMIT 1";
     $stmt = $db->query($query);
@@ -36,14 +36,20 @@ function getLastBook($db)
                 ?>
 
                 <blockquote>
-                    <p><?php echo $lastBook['title']; ?></p>
-                    <p><cite>– <?php echo $lastBook['author']; ?></cite></p>
+                    <p>
+                        <?php echo $lastBook['title']; ?>
+                    </p>
+                    <p><cite>–
+                            <?php echo $lastBook['author']; ?>
+                        </cite></p>
                 </blockquote>
 
 
                 <?php
             } else {
-                echo 'No books found';
+                ?>
+                <h3>Nothing to show here</h3>
+                <?php
             }
 
             ?>
